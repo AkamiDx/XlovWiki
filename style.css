@@ -1,6 +1,6 @@
 /* ================= ROOT ================= */
 :root {
-    --primary: #ff004c;
+    --primary: #ffffff;
     --background: #141414;
     --card: #1f2833;
     --text: #ffffff;
@@ -22,46 +22,72 @@ html {
 }
 
 body {
-    background: var(--background);
+    background:radial-gradient(circle at top,#242424 0%,#181818 35%,#111111 100%);
     color: var(--text);
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x: hidden;
 }
 
 /* ================= MENU ================= */
-.main-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    background: #141414ee;
-    backdrop-filter: blur(10px);
-    border-bottom: 3px solid var(--primary);
-    z-index: 1000;
+.main-menu{
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:1200px;
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:24px;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.25);
+    z-index:9999;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--primary);
-    text-transform: uppercase;
+.logo{
+    font-size:1.4rem;
+    font-weight:900;
+    color:white;
+    letter-spacing:2px;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.3);
 }
 
-.navigation a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: bold;
-    transition: .3s;
+.navigation a{
+    color:white;
+    padding:10px 16px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:.3s;
 }
 
-.navigation a:hover {
-    color: var(--primary);
+.navigation a:hover{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    color:white;
+}
+
+.main-menu::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.25),
+            transparent 40%,
+            rgba(255,255,255,.08)
+        );
+    pointer-events:none;
 }
 
 /* ================= HOME ================= */
@@ -121,10 +147,10 @@ body {
     color: white;
 }
 
+
 .member-card {
     width: 220px;
     height: 260px;
-    background: var(--card);
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -132,8 +158,12 @@ body {
     justify-content: center;
     align-items: center;
     transition: .4s;
-    border: 3px solid transparent;
-    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.35),
+    inset 0 1px rgba(255,255,255,.2);
 }
 
 .member-photo {
@@ -210,11 +240,13 @@ body {
     width: min(950px, 90%);
     max-height: 90vh;
     overflow-y: auto;
-    background: #1b232c;
     border-radius: 20px;
     display: flex;
     position: relative;
     animation: openModal .3s ease;
+    background:rgba(24,24,24,.55);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,.15);
 }
 
 @keyframes openModal {
@@ -324,8 +356,9 @@ body {
     width: 320px;
     height: 320px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,.6);
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
     margin-bottom: 40px;
 }
 
@@ -341,18 +374,22 @@ body {
     width: 220px;
     min-height: 100px;
     padding: 25px;
-    background: var(--card);
     border-radius: 15px;
     text-decoration: none;
     color: white;
     transition: .3s;
     border: 2px solid transparent;
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:  0 8px 30px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.15);
 }
 
 .song-card:hover {
     transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 0 20px #ff004c66;
+    scale: (1.03);
+    box-shadow:  0 10px 40px rgba(255, 255, 255, 0.25);
 }
 
 .song-card h4 {
@@ -393,6 +430,9 @@ body {
 audio {
     width: 100%;
     margin-bottom: 25px;
+    background:rgba(255,255,255,.08);
+    border-radius:999px;
+    padding:10px;
 }
 
 .song-data {
