@@ -1,0 +1,485 @@
+/* ================= ROOT ================= */
+:root {
+    --primary: #ff004c;
+    --background: #141414;
+    --card: #1f2833;
+    --text: #ffffff;
+    --wumuti: #ff0000;
+    --rui: #ff69b4;
+    --haru: #ffd700;
+    --hyun: #00bfff;
+}
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ================= MENU ================= */
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: #141414ee;
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--primary);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.navigation a:hover {
+    color: var(--primary);
+}
+
+/* ================= HOME ================= */
+.parallax {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.top {
+    background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url("images/Group-photo2.jpg");
+}
+
+.greeting {
+    text-align: center;
+}
+
+.greeting h1 {
+    font-size: 4rem;
+    letter-spacing: 5px;
+}
+
+.greeting h2 {
+    margin-top: 15px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* ================= TITULOS ================= */
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+}
+
+.member-section,
+.discography-section {
+    padding: 100px 40px;
+}
+
+/* ================= MEMBROS ================= */
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.card-link {
+    text-decoration: none;
+    color: white;
+}
+
+.member-card {
+    width: 220px;
+    height: 260px;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+    border: 3px solid transparent;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+.member-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.member-card h2 {
+    margin-top: 18px;
+    transition: .4s;
+}
+
+/* ================= CORES HOVER ================= */
+.wumuti-card:hover {
+    border-color: var(--wumuti);
+    box-shadow: 0 0 25px var(--wumuti);
+}
+
+.wumuti-card:hover h2 {
+    color: var(--wumuti);
+}
+
+.rui-card:hover {
+    border-color: var(--rui);
+    box-shadow: 0 0 25px var(--rui);
+}
+
+.rui-card:hover h2 {
+    color: var(--rui);
+}
+
+.haru-card:hover {
+    border-color: var(--haru);
+    box-shadow: 0 0 25px var(--haru);
+}
+
+.haru-card:hover h2 {
+    color: var(--haru);
+}
+
+.hyun-card:hover {
+    border-color: var(--hyun);
+    box-shadow: 0 0 25px var(--hyun);
+}
+
+.hyun-card:hover h2 {
+    color: var(--hyun);
+}
+
+/* ================= MODAIS ================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+}
+
+.modal:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    width: min(950px, 90%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #1b232c;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+    animation: openModal .3s ease;
+}
+
+@keyframes openModal {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+    transition: .3s;
+    z-index: 2;
+}
+
+.close:hover {
+    color: var(--primary);
+    transform: rotate(90deg);
+}
+
+/* ================= MODAL MEMBROS ================= */
+.modal-image {
+    width: 350px;
+    height: 550px;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 40px;
+    flex: 1;
+}
+
+.modal-info h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.modal-info h3 {
+    margin: 30px 0 10px;
+    font-size: 1.4rem;
+}
+
+.modal-info p {
+    color: #ddd;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* QUADRADINHOS */
+.member-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.member-data div {
+    background: #111820;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 3px solid var(--primary);
+}
+
+.member-data span {
+    display: block;
+    color: #999;
+    font-size: .85rem;
+    margin-bottom: 5px;
+}
+
+.member-data strong {
+    font-size: 1rem;
+}
+
+/* CORES DAS INFORMAÇÕES */
+.red { color: var(--wumuti); }
+.pink { color: var(--rui); }
+.yellow { color: var(--haru); }
+.blue { color: var(--hyun); }
+
+/* ================= DISCOGRAFIA ================= */
+.discography-section {
+    background: #101010;
+}
+
+.era {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.era-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+}
+
+.album-cover {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.6);
+    margin-bottom: 40px;
+}
+
+/* ================= MUSICAS ================= */
+.songs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.song-card {
+    width: 220px;
+    min-height: 100px;
+    padding: 25px;
+    background: var(--card);
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+    border: 2px solid transparent;
+}
+
+.song-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 0 20px #ff004c66;
+}
+
+.song-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.song-card p {
+    color: #aaa;
+    font-size: .9rem;
+}
+
+/* ================= MODAL DE MÚSICA ================= */
+.song-content {
+    width: min(600px, 90%);
+}
+
+.song-info {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+.song-info h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.song-cover {
+    width: 220px;
+    height: 220px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 25px;
+}
+
+audio {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.song-data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.song-data div {
+    background: #111820;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.song-data span {
+    color: #888;
+    display: block;
+    font-size: .8rem;
+}
+
+.song-data strong {
+    display: block;
+    margin-top: 5px;
+}
+
+.lyrics {
+    background: #111820;
+    border-radius: 15px;
+    padding: 25px;
+    min-height: 300px;
+    color: #ccc;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* ================= RESPONSIVIDADE ================= */
+@media(max-width:900px) {
+    .main-menu { padding: 0 20px; }
+    .navigation a { margin-left: 12px; font-size: .85rem; }
+    .greeting h1 { font-size: 2.5rem; }
+    .greeting h2 { font-size: 1rem; }
+    .modal-content { flex-direction: column; width: 90%; max-height: 90vh; }
+    .modal-image { width: 100%; height: 350px; }
+    .modal-info { padding: 25px; }
+}
+
+@media(max-width:600px) {
+    .main-menu {
+        height: auto;
+        min-height: 70px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+    }
+    .navigation { display: flex; justify-content: center; flex-wrap: wrap; }
+    .navigation a { margin: 0 10px; }
+    .member-section, .discography-section { padding: 80px 20px; }
+    .section-title { font-size: 2rem; }
+    .member-card { width: 200px; height: 240px; }
+    .member-photo { width: 140px; height: 140px; }
+    .album-cover { width: 250px; height: 250px; }
+    .songs { flex-direction: column; align-items: center; }
+    .song-card { width: 90%; }
+    .song-data { grid-template-columns: 1fr; }
+}
+
+/* ================= ANIMAÇÕES EXTRAS ================= */
+.member-card,
+.song-card,
+.album-cover {
+    animation: fadeUp .6s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= BARRA DE ROLAGEM ================= */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 20px; }
+::-webkit-scrollbar-thumb:hover { background: #ff336d; }
+
+
+.video{
+    border-radius: 15px;
+    aspect-ratio: 16/9;
+}
