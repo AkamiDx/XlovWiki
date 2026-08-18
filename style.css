@@ -113,6 +113,7 @@ body {
 .greeting h1 {
     font-size: 4rem;
     letter-spacing: 5px;
+    animation: expandir 1s;
 }
 
 .greeting h2 {
@@ -522,4 +523,17 @@ audio {
 .video{
     border-radius: 15px;
     aspect-ratio: 16/9;
+}
+
+@-webkit-keyframes expandir {
+0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+}
+40% {
+    opacity: 0.6;
+}
+100% {
+    opacity: 1;
+}
 }
